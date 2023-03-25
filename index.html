@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="bubble-container">
+            <div class="layer" data-depth="0.5">
+                <div class="circle circle-1"></div>
+            </div>
+            <div class="layer" data-depth="1.2">
+                <div class="circle circle-2"></div>
+            </div>
+            <div class="layer" data-depth="0.5">
+                <div class="circle circle-3"></div>
+            </div>
+            <div class="layer" data-depth="0.5">
+                <div class="circle circle-4"></div>
+            </div>
+            <div class="layer" data-depth="1.2">
+                <div class="circle circle-5"></div>
+            </div>
+            
+            
+            
+            
+            
+        </div>
+        <div class="wave">
+            <svg preserveAspectRatio="none" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+                <defs><linearGradient id="gradient" x1="54%" y1="0%" x2="46%" y2="100%"><stop offset="5%" stop-color="#c0392b"></stop><stop offset="95%" stop-color="#313131"></stop></linearGradient></defs><path d="M 0,400 C 0,400 0,200 0,200 C 138.66666666666669,155.2 277.33333333333337,110.4 462,126 C 646.6666666666666,141.6 877.3333333333333,217.60000000000002 1048,240 C 1218.6666666666667,262.4 1329.3333333333335,231.2 1440,200 C 1440,200 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
+    
+        </div>
+
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script type="text/javascript">
+    var bubbles = document.getElementById('bubble-container');
+    var parallaxInstance = new Parallax(bubbles);
+
+    </script>
+
+</body>
+</html>

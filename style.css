@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.test {
+    color: yellow;
+    background-color: blue;
+
+}
+
+#bubble-container {
+    position: absolute;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.circle { 
+    background: linear-gradient(180deg, #C0392B 5.99%, #313131 105.99%);
+    position: absolute;
+ }
+
+ .circle-1 {
+    width: 11vw;
+    height: 11vw;
+    left: 4vw;
+    animation: bounce1 5s ease infinite;
+ }
+ 
+ .circle-2 {
+    width: 22vw;
+    height: 22vw;
+    left: 12.8vw;
+    animation: bounce2 15s ease infinite;
+ }
+
+ .circle-3 {
+    width: 8.2vw;
+    height: 8.2vw;
+    left: 41.6vw;
+    animation: bounce3 10s ease infinite;
+ }
+
+ .circle-4 {
+    width: 9.245vw;
+    height: 9.245vw;
+    left: 62.500vw;
+    animation: bounce4 13s ease infinite;
+ }
+
+ .circle-5 {
+    width: 21.940vw;
+    left: 80.143vw;
+    height: 21.940vw;
+    top: -3.190vw;
+    animation: bounce5 15s ease infinite;
+ }
+
+.container {
+    background-color: #313131;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.wave svg {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 60vh;
+}
+
+.path-0{
+    animation:pathAnim-0 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    }
+    
+@keyframes pathAnim-0{
+0%{
+    d: path("M 0,400 C 0,400 0,200 0,200 C 138.66666666666669,155.2 277.33333333333337,110.4 462,126 C 646.6666666666666,141.6 877.3333333333333,217.60000000000002 1048,240 C 1218.6666666666667,262.4 1329.3333333333335,231.2 1440,200 C 1440,200 1440,400 1440,400 Z");
+}
+25%{
+    d: path("M 0,400 C 0,400 0,200 0,200 C 173.06666666666666,170.66666666666669 346.1333333333333,141.33333333333334 494,136 C 641.8666666666667,130.66666666666666 764.5333333333333,149.33333333333331 918,164 C 1071.4666666666667,178.66666666666669 1255.7333333333333,189.33333333333334 1440,200 C 1440,200 1440,400 1440,400 Z");
+}
+50%{
+    d: path("M 0,400 C 0,400 0,200 0,200 C 157.86666666666667,160.79999999999998 315.73333333333335,121.59999999999997 488,135 C 660.2666666666667,148.40000000000003 846.9333333333334,214.40000000000003 1008,234 C 1169.0666666666666,253.59999999999997 1304.5333333333333,226.79999999999998 1440,200 C 1440,200 1440,400 1440,400 Z");
+}
+75%{
+    d: path("M 0,400 C 0,400 0,200 0,200 C 139.33333333333331,191.86666666666667 278.66666666666663,183.73333333333332 454,199 C 629.3333333333334,214.26666666666668 840.6666666666667,252.93333333333334 1011,257 C 1181.3333333333333,261.06666666666666 1310.6666666666665,230.53333333333333 1440,200 C 1440,200 1440,400 1440,400 Z");
+}
+100%{
+    d: path("M 0,400 C 0,400 0,200 0,200 C 138.66666666666669,155.2 277.33333333333337,110.4 462,126 C 646.6666666666666,141.6 877.3333333333333,217.60000000000002 1048,240 C 1218.6666666666667,262.4 1329.3333333333335,231.2 1440,200 C 1440,200 1440,400 1440,400 Z");
+}
+}
+
+@keyframes bounce1 {
+    0% {top: 2vw; border-radius: 42% 51% 30% 63% / 60% 73% 43% 49%;}
+    50% {top: 3vw; border-radius: 52%}
+    100% {top: 2vw; border-radius: 42% 51% 30% 63% / 60% 73% 43% 49%;}
+  }
+
+@keyframes bounce2 {
+    0% {top: 15vw; border-radius: 50%}
+    50% {top: 21vw; border-radius: 38% 63% 54% 48% / 73% 58% 52% 49%;}
+    100% {top: 15vw; border-radius: 50%}
+}
+
+@keyframes bounce3 {
+    0% {top: 7.6vw; border-radius: 52% 42% 80% 23% / 67% 75% 67% 73%;}
+    50% {top: 12vw; border-radius: 50%}
+    100% {top: 7.6vw; border-radius: 52% 42% 80% 23% / 67% 75% 67% 73%;}
+}
+
+@keyframes bounce4 {
+    0% {top: 25vw; border-radius: 50%}
+    50% {top: 20vw; border-radius: 48% 81% 30% 39% / 67% 75% 58% 73%;}
+    100% {top: 25vw; border-radius: 50%}
+}
+
+@keyframes bounce5 {
+    0% {top: -3.190vw; border-radius: 48% 81% 30% 49% / 92% 48% 61% 32%;}
+    50% {top: 2vw; border-radius: 50%}
+    100% {top: -3.190vw; border-radius: 48% 81% 30% 49% / 92% 48% 61% 32%;}
+}
