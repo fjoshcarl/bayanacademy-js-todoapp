@@ -3,10 +3,11 @@
     padding: 0;
 }
 
-.test {
-    color: yellow;
-    background-color: blue;
-
+.container {
+    background-color: #313131;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 #bubble-container {
@@ -57,13 +58,6 @@
     animation: bounce5 15s ease infinite;
  }
 
-.container {
-    background-color: #313131;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
-
 .wave svg {
     position: absolute;
     bottom: 0;
@@ -72,10 +66,10 @@
 }
 
 .path-0{
-    animation:pathAnim-0 4s;
+    animation: pathAnim-0 4s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    }
+}
     
 @keyframes pathAnim-0{
 0%{
