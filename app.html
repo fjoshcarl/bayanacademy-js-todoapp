@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <script src="https://kit.fontawesome.com/d5c6e9e002.js" crossorigin="anonymous"></script>
+    <title>TO DO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BUBBLE BACKGROUND  -->
+
+    <div class="bgcontainer bg-darkcharcoal">
+
+        <div id="bubble-container">
+            <div class="layer" data-depth="0.5">
+                <div class="circle circle-1"></div>
+            </div>
+            <div class="layer" data-depth="1.2">
+                <div class="circle circle-2"></div>
+            </div>
+            <div class="layer" data-depth="0.5">
+                <div class="circle circle-3"></div>
+            </div>
+            <div class="layer" data-depth="0.5">
+                <div class="circle circle-4"></div>
+            </div>
+            <div class="layer" data-depth="1.2">
+                <div class="circle circle-5"></div>
+            </div>
+        </div>
+        <div class="wave">
+            <svg preserveAspectRatio="none" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+                <defs>
+                    <linearGradient id="gradient" x1="54%" y1="0%" x2="46%" y2="100%">
+                        <stop offset="5%" stop-color="#c0392b"></stop>
+                        <stop offset="95%" stop-color="#313131"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M 0,400 C 0,400 0,200 0,200 C 138.66666666666669,155.2 277.33333333333337,110.4 462,126 C 646.6666666666666,141.6 877.3333333333333,217.60000000000002 1048,240 C 1218.6666666666667,262.4 1329.3333333333335,231.2 1440,200 C 1440,200 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0">
+                </path>
+            </svg>
+        </div>
+        
+    </div>
+
+    <!-- END OF BUBBLE BACKGROUND  -->
+
+
+    <!-- END OF USER INFO MODAL -->
+
+    <!-- TASKBOARD -->
+
+    <div class="task-bg">
+
+        <div class="task-header max-h-[100px] min-h-[60px] flex text-brightgrey">
+            <div class="user-greet h-full flex items-center md:text-6xl sm:text-3xl text-lg">
+                <span class="ml-16" id="greet-name">Hi, userName</span>
+            </div>
+            
+        </div>
+
+
+        
+        <!-- INSERT TASKS HERE -->
+        <div class="task-container w-screen h-screen">
+            <div class="w-full h-full overflow-y-auto flex flex-col">
+                <div class="flex flex-col w-full">
+                    <span class="span-current-tasks h-[10vh] py-[10px] pl-16 md:text-3xl text-brightgrey">Here are your current tasks:</span>
+                    <div class="current-task-container-board px-10 flex flex-col justify-center w-full h-auto">
+                    </div>
+                </div>
+                <div class="flex flex-col w-full h-auto mb-[140px]">
+                    <span class="span-completed-tasks h-[10vh] py-[10px] pl-16 md:text-3xl text-brightgrey">Here are your accomplished tasks:</span>
+                    <div class="completed-task-container-board px-10 flex flex-col justify-center w-full h-auto"> 
+
+                        <!-- display done task info here -->
+                        <div class="hidden task-box hover:translate-y-[-10px] transition ease-in-out bg-[#CAFFC9]/70 border-[#759574] border-4"> <!-- display completed task info-->
+                            <div class="flex w-full h-full text-xl">
+                                <div class="w-full h-full flex justify-center items-center" style="flex: 30%">
+                                    <div class="checkbox-container hover:bg-[#8CC28B]/80 hover:border-[#426341] hover:scale-[1.2] transition ease-in-out rounded-full flex  justify-center items-center">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="w-full h-full flex items-center" style="flex: 70%">
+                                    <span class="truncate w-[250px]" style="text-decoration: line-through;">Eat snacks</span>
+                                </div>
+                                <div class="w-full h-full flex justify-center items-center" style="flex: 20%">
+                                    <button><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end display done task info -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- ADD TASK MODAL -->
+    <div class="hidden task-add-container absolute h-screen w-screen z-20
+                flex justify-center items-center
+                ">
+        <div class="task-add-modal lg:w-6/12 h-1/4 min-[500px]:w-10/12 rounded-3xl
+                    border-4 border-americansilver
+                    ">
+            <div class="flex flex-col h-full">
+                <div class="h-full flex-[50%]">
+                    <div class="h-full w-full flex items-center justify-center">
+                        <input type="text" class="task-add-input placeholder:text-darkcharcoal/70 w-full px-8"
+                                placeholder="What task would you like to add?">
+                    </div>
+                </div>
+                <div class="h-full flex-[50%]">
+                    <div class="h-full flex justify-end items-end content-end">
+                        <button class="rounded-[31px] mb-[20px] sm:mr-[20px]
+                                       hover:bg-internationalorange2/80
+                                       hover:border-kenyancopper
+                                       hover:text-kenyancopper
+                        " id="btnCancelTask">
+                            Cancel
+                        </button>
+                        <button class="rounded-[31px] mb-[20px] sm:mr-[20px]
+                                       hover:bg-darkseagreen/80
+                                       hover:border-grayasparagus
+                                       hover:text-grayasparagus
+                        " id="btnAddTask">
+                            Add Task
+                        </button>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- END OF ADD TASK MODAL -->
+
+    <button id="btnAdd" class="btn-add hover:scale-[1.2] transition ease-in-out fixed rounded-full w-16 h-16 bg-cinnabar hover:bg-darkpastelred bottom-16 right-10 z-10">
+        <i class="fa-solid fa-plus text-3xl text-white"></i>
+    </button>
+
+
+
+    <!--  END OF TASKBOARD -->
+
+    <!-- HOME -->
+        <button class="task-home absolute top-[30px] right-[30px]
+                        md:text-2xl sm:text-3xl text-brightgrey" id="btnHome">
+            <i class="fa fa-house px-1"></i>
+            <span class="px-1 z-50">Home</span>
+        </button>
+
+    <!-- END HOME -->
+
+
+
+    <!-- DISPLAY WHEN NO TASKS AVAILABLE -->
+    <div class="no-tasks absolute h-screen w-screen flex justify-center items-center text-4xl text-brightgrey">
+        <span>No tasks here yet</span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="fixed bottom-0 w-screen text-darkcharcoal bg-brightgrey text-center flex items-center justify-center">
+        <span><strong>Josh Carl Francisco</strong> | Final project for Bayan Academy</span>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script type="text/javascript">
+    let sessionUser = localStorage.getItem("sessionUser");
+    console.log(`sessionUser value: ${sessionUser}`);
+    const page = "app";
+    if (!sessionUser){
+        window.location.href = "index.html";
+    }
+    var bubbles = document.getElementById('bubble-container');
+    var parallaxInstance = new Parallax(bubbles);
+    </script>
+    <script src="app.js"></script>
+
+
+</body>
+</html>

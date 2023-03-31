@@ -1,13 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
 }
 
-.container {
-    background-color: #313131;
+.bgcontainer {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    position: absolute; /* remove */
 }
 
 #bubble-container {
@@ -26,7 +34,7 @@
     width: 11vw;
     height: 11vw;
     left: 4vw;
-    animation: bounce1 5s ease infinite;
+    animation: bounce1 12s ease infinite;
  }
  
  .circle-2 {
@@ -52,17 +60,17 @@
 
  .circle-5 {
     width: 21.940vw;
-    left: 80.143vw;
+    left: 78.143vw;
     height: 21.940vw;
     top: -3.190vw;
-    animation: bounce5 15s ease infinite;
+    animation: bounce5 18s ease infinite;
  }
 
 .wave svg {
     position: absolute;
     bottom: 0;
     width: 100vw;
-    height: 60vh;
+    height: 40vh;
 }
 
 .path-0{
@@ -91,30 +99,205 @@
 
 @keyframes bounce1 {
     0% {top: 2vw; border-radius: 42% 51% 30% 63% / 60% 73% 43% 49%;}
-    50% {top: 3vw; border-radius: 52%}
+    50% {top: 3vw; border-radius: 52%; transform: scale(1.2);}
     100% {top: 2vw; border-radius: 42% 51% 30% 63% / 60% 73% 43% 49%;}
   }
 
 @keyframes bounce2 {
     0% {top: 15vw; border-radius: 50%}
-    50% {top: 21vw; border-radius: 38% 63% 54% 48% / 73% 58% 52% 49%;}
+    50% {top: 21vw; border-radius: 38% 63% 54% 48% / 73% 58% 52% 49%; transform: scale(1.2);}
     100% {top: 15vw; border-radius: 50%}
 }
 
 @keyframes bounce3 {
     0% {top: 7.6vw; border-radius: 52% 42% 80% 23% / 67% 75% 67% 73%;}
-    50% {top: 12vw; border-radius: 50%}
+    50% {top: 12vw; border-radius: 50%; transform: scale(1.2);}
     100% {top: 7.6vw; border-radius: 52% 42% 80% 23% / 67% 75% 67% 73%;}
 }
 
 @keyframes bounce4 {
     0% {top: 25vw; border-radius: 50%}
-    50% {top: 20vw; border-radius: 48% 81% 30% 39% / 67% 75% 58% 73%;}
+    50% {top: 20vw; border-radius: 48% 81% 30% 39% / 67% 75% 58% 73%; transform: scale(1.2);}
     100% {top: 25vw; border-radius: 50%}
 }
 
 @keyframes bounce5 {
     0% {top: -3.190vw; border-radius: 48% 81% 30% 49% / 92% 48% 61% 32%;}
-    50% {top: 2vw; border-radius: 50%}
+    50% {top: 5vw; border-radius: 50%; transform: scale(1.2);}
     100% {top: -3.190vw; border-radius: 48% 81% 30% 49% / 92% 48% 61% 32%;}
+}
+
+
+
+/* USER INPUT MODAL */
+
+.bg-tranwhite {
+    background-color: rgba(255,255,255, 40%);
+}
+
+.name-modal {
+    box-shadow: 0px 0px 50px 6px rgba(255, 255, 255, 0.25);
+    bo
+    backdrop-filter: blur(5px);
+}
+
+.name-modal span {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    text-shadow: -3px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.name-input {
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px solid #ECF0F1;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    height: 40px;
+    padding-left: 50px;
+}
+
+.name-input:focus {
+    border: 3px solid #ECF0F1;
+    outline: none;
+}
+
+.icon {
+    width: 50px;
+    text-align: center;
+    height: 40px;
+    padding-top: 12.5px;
+}
+
+.name-modal button {
+    background-color: rgba(236, 240, 241, 40%);
+    border: 2px solid #ECF0F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+.name-modal button:hover {
+    background-color: rgba(236, 240, 241, 100%);
+}
+
+/* USER INPUT MODAL END */
+
+/* TASKBOARD */
+
+.task-bg {
+    position: absolute;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(49, 49, 49, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.task-header {
+    height: 20vh;
+    width: 100%;
+}
+
+.user-greet {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 800;
+    text-shadow: -3px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.task-home {
+    z-index: 25 !important;
+    font-family: 'Poppins';
+    font-style: normal;
+    text-shadow: -3px 4px 6px rgba(0, 0, 0, 0.5);
+} 
+
+.no-tasks {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    text-shadow: -3px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.btn-add {
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.25);
+}
+
+.task-add-container {
+    background: rgba(49, 49, 49, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.task-add-modal {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 50px 6px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+.task-add-modal button {
+    background: rgba(236, 240, 241, 0.4);
+    border: 2px solid #ECF0F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    width: 130px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #626262;
+    padding: 5px 0;
+}
+
+.task-add-input {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(49, 49, 49, 0.7);
+    outline: none;
+    text-shadow: -2px 2px 10px rgba(49, 49, 49, 0.25);
+}
+
+.task-container span {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+    text-shadow: -3px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.task-container-board {
+    width: 100%;
+    height: auto;
+}
+
+.task-box {
+    display: flex;
+    width: 30vw;
+    min-width: 350px;
+    height: 100px;
+    box-shadow: 0px 0px 50px 6px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    border-radius: 22px;
+    margin: 10px 0;
+}
+
+.checkbox-container {
+    cursor: pointer;
+    background: rgba(236, 240, 241, 0.5);
+    border: 3px solid #ECF0F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    width: 40px;
+    height: 40px;
+}
+
+/* TASKBOARD END */
+
+footer {
+    height: 40px;
 }

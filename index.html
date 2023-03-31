@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <script src="https://kit.fontawesome.com/d5c6e9e002.js" crossorigin="anonymous"></script>
     <title>TO DO</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
 
-        <!-- * BUBBLE BACKGROUND  -->
+    <!-- BUBBLE BACKGROUND  -->
+
+    <div class="bgcontainer bg-darkcharcoal">
 
         <div id="bubble-container">
             <div class="layer" data-depth="0.5">
@@ -41,17 +45,56 @@
                 </path>
             </svg>
         </div>
-
-        <!-- * END OF BUBBLE BACKGROUND  -->
-
+        
     </div>
+
+    <!-- END OF BUBBLE BACKGROUND  -->
+
+
+    <!-- USER INFO MODAL -->
+
+    <div class="w-full h-full absolute">
+        <div class="flex w-full h-full items-center justify-center">
+            <form class="name-modal flex flex-col items-center justify-center
+                        min-[500px]:w-10/12 sm:w-8/12 lg:w-7/12 h-4/6
+                        bg-tranwhite rounded-3xl border-4 border-americansilver
+                        " id="name-modal">
+                <span class="lg:text-3xl md:text-lg text-sm my-3 text-brightgrey">
+                    To Get Started, please enter your name:
+                </span>
+                <div class="my-3 w-100 h-11"> <!-- TODO replace w-100 with w-full -->
+                    <i class="fa fa-user icon absolute text-center my-auto text-brightgrey"></i>
+                    <input class="md:w-[30rem] name-input rounded-3xl border-white text-brightgrey" 
+                           id="name-input" type="text" placeholder="Name">
+                </div>
+                <button class="my-3 rounded-3xl w-52 h-11 text-dimgrey hover:text-darkgrey">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <!-- END OF USER INFO MODAL -->
+
+    <!-- FOOTER -->
+    <footer class="fixed bottom-0 w-screen text-darkcharcoal bg-brightgrey text-center flex items-center justify-center">
+        <span><strong>Josh Carl Francisco</strong> | Final project for Bayan Academy</span>
+    </footer>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script type="text/javascript">
+    let sessionUser = localStorage.getItem("sessionUser");
+    const page = "index";
+    console.log(`sessionUser value: ${sessionUser}`);
+    if (sessionUser){
+        window.location.href = "app.html";
+    }
     var bubbles = document.getElementById('bubble-container');
     var parallaxInstance = new Parallax(bubbles);
     </script>
+    <script src="app.js"></script>
+
 
 </body>
 </html>
