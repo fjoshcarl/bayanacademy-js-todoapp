@@ -11,7 +11,6 @@ if (page == "index"){
 
     inputForm.addEventListener("submit", function(e) {
         e.preventDefault();
-        console.log(`input name value: ${inputName.value}`);
         if(isNaN(inputName.value) && inputName.value.length <= 20) {
             localStorage.setItem("sessionUser", inputName.value);
             window.location.href = "app.html";
@@ -31,7 +30,6 @@ if (page == "index"){
 
 
 
-    console.log(`current page is ${page}`);
 
     const btnHome = document.getElementById("btnHome");
     const btnAdd = document.getElementById("btnAdd");
@@ -45,23 +43,22 @@ if (page == "index"){
     let currentTaskBoard = document.querySelector(".current-task-container-board");
     let completedTaskBoard = document.querySelector(".completed-task-container-board");
     let inputTask = document.querySelector(".task-add-input");
-    let currentTasks = JSON.parse(localStorage.getItem("currentTasks"));
+    let currentTasks = JSON.parse(localStorage.getItem("currentTasks")); 
     let completedTasks = JSON.parse(localStorage.getItem("completedTasks"));
     let taskCounter = 0;
 
 
     
-    function deleteCurrentTask(id) {
+    function deleteCurrentTask(id) {                    // DELETES INDIVIDUAL TASK ON DOM CONTAINER THEN ON LOCALSTORAGE
         let deleteId = `currenttask-${id}`;
-
         let deletedTask = document.getElementById(deleteId);
-        deletedTask.remove();
-
-        currentTasks.splice(id, 1);
+        currentTasks = currentTasks.filter(task => task.id != id);
         localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
-
-       
-        console.log(deletedTask);
+        deletedTask.remove();
+        taskCounter--;
+        if(currentTasks.length == 0) {
+            displayNoTasks();
+        }
     }
 
     const displayCompletedTasks = () => {
@@ -84,27 +81,25 @@ if (page == "index"){
         }
     }
 
-    const displayCurrentTaskList = () => {
-        let i = 0;
+
+    const displayCurrentTaskList = () => {              // displays all tasks
         for(let currentTask of currentTasks) {
-            console.log(currentTask);
             currentTaskBoard.innerHTML += `
-            <div id="currenttask-${i}" class="task-box hover:translate-y-[-10px] transition ease-in-out bg-[#FFFFFF]/70 border-[#D1D1D1] border-4">
+            <div id="currenttask-${currentTask.id}" class="task-box hover:translate-y-[-10px] transition ease-in-out bg-[#FFFFFF]/70 border-[#D1D1D1] border-4">
                 <div class="flex w-full h-full text-xl">
                     <div class="w-full h-full flex justify-center items-center" style="flex: 30%">
                         <div class="checkbox-container hover:bg-[#FFECA6]/80 hover:border-[#CEBC78]  hover:scale-[1.2] transition ease-in-out rounded-full">
                         </div>
                     </div>
                     <div class="w-full h-full flex items-center" style="flex: 70%">
-                        <span class="truncate w-[250px]">${currentTask}</span>
+                        <span class="truncate w-[250px]">${currentTask.content}</span>
                     </div>
                     <div class="w-full h-full flex justify-center items-center" style="flex: 20%">
-                        <button onclick="deleteCurrentTask(${i})"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
+                        <button onclick="deleteCurrentTask(${currentTask.id})"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
                     </div>
                 </div>
             </div>
             `;
-            i++;
         }
     }
 
@@ -117,12 +112,10 @@ if (page == "index"){
             taskCounter = currentTasks.length;
         }
         
-        console.log(`taskCounter: ${taskCounter}`);
         displayNoTasks();
 
         // execute codes when tasks exists in localsession
 
-        // TODO DISPLAY EXISTING TASKS
         displayCurrentTaskList();
 
     } else {
@@ -130,7 +123,6 @@ if (page == "index"){
         completedTasks = [];
         displayNoTasks();
 
-        console.log(`taskCounter: ${taskCounter}`)
         // execute codes when no tasks exists in localsession
 
     }
@@ -144,8 +136,6 @@ if (page == "index"){
 
     btnAdd.addEventListener("click", function(e) {
         addTaskModal.classList.remove("hidden");
-        console.log(taskCounter);
-        console.log(currentTasks);
     });
 
     btnCancelTask.addEventListener("click", function(e) {
@@ -153,27 +143,42 @@ if (page == "index"){
     });
 
     btnAddTask.addEventListener("click", function(e) {
-        let task = inputTask.value;
-        if(task.length >= 3) {
-            currentTasks.push(task);
-            console.log(currentTasks);
+        if(inputTask.value.length >= 3) {      // adds tasks to session storage
+
+            let lastTask;
+            let taskId;
+
+            // object constructor for new tasks
+            function Task(id, content, stat) {
+                this.id = id;               // unique id, incremental
+                this.content = content;     // contains task string value
+                this.stat = stat;           // determines whether task is done or not done
+            }
+            if(currentTasks.length > 0) {  // check if localstorage contains tasks
+                lastTask = currentTasks[currentTasks.length-1]
+                taskId = lastTask.id + 1;
+            } else {
+                taskId = 0;
+            }
+
+            const newTask = new Task(taskId, inputTask.value, 0);
+            currentTasks.push(newTask);
             localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
             inputTask.value = "";
             taskCounter++;
-            let taskID = JSON.parse(localStorage.getItem("currentTasks")).length - 1;
 
             currentTaskBoard.innerHTML += `
-            <div id="currenttask-${taskID}" class="task-box hover:translate-y-[-10px] transition ease-in-out bg-[#FFFFFF]/70 border-[#D1D1D1] border-4">
+            <div id="currenttask-${newTask.id}" class="task-box hover:translate-y-[-10px] transition ease-in-out bg-[#FFFFFF]/70 border-[#D1D1D1] border-4">
                 <div class="flex w-full h-full text-xl">
                     <div class="w-full h-full flex justify-center items-center" style="flex: 30%">
                         <div class="checkbox-container hover:bg-[#FFECA6]/80 hover:border-[#CEBC78]  hover:scale-[1.2] transition ease-in-out rounded-full">
                         </div>
                     </div>
                     <div class="w-full h-full flex items-center" style="flex: 70%">
-                        <span class="truncate w-[250px]">${task}</span>
+                        <span class="truncate w-[250px]">${newTask.content}</span>
                     </div>
                     <div class="w-full h-full flex justify-center items-center" style="flex: 20%">
-                        <button onclick="deleteCurrentTask(${taskID})"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
+                        <button onclick="deleteCurrentTask(${newTask.id})"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
                     </div>
                 </div>
             </div>
