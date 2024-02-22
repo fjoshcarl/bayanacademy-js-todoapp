@@ -69,15 +69,15 @@
         <!-- INSERT TASKS HERE -->
         <div class="task-container w-screen h-screen">
             <div class="w-full h-full overflow-y-auto flex flex-col">
-                <div class="flex flex-col w-full">
-                    <span class="span-current-tasks h-[10vh] py-[10px] pl-16 text-2xl md:text-3xl text-brightgrey">Here are your current tasks:</span>
-                    <div class="current-task-container-board scale-75 md:scale-100 px-10 flex flex-col justify-center w-full h-auto">
+                <div class="flex flex-col w-full mb-[20vh]">
+                    <span class="span-current-tasks h-[7.5vh] py-[10px] md:pl-16 text-center md:text-start text-lg md:text-3xl text-brightgrey">Here are your current tasks:</span>
+                    <div class="current-task-container-board md:px-10 flex flex-col md:flex-row flex-wrap content-center justify-center md:justify-start w-full h-auto">
+                        <!-- current tasks here -->
                     </div>
                 </div>
                 <div class="flex flex-col w-full h-auto mb-[140px]">
                     <span class="span-completed-tasks h-[10vh] py-[10px] pl-16 md:text-3xl text-brightgrey">Here are your accomplished tasks:</span>
                     <div class="completed-task-container-board px-10 flex flex-col justify-center w-full h-auto"> 
-
                         <!-- display done task info here
                         <div class="task-box hover:translate-y-[-10px] transition ease-in-out bg-[#CAFFC9]/70 border-[#759574] border-4">
                             <div class="flex w-full h-full text-xl">
@@ -168,7 +168,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="fixed bottom-0 w-screen text-darkcharcoal bg-brightgrey text-center flex items-center justify-center">
+    <footer class="fixed bottom-0 w-screen md:h-10 text-darkcharcoal bg-brightgrey text-center flex items-center justify-center">
         <span><strong>Josh Carl Francisco</strong> | Final project for Bayan Academy</span>
     </footer>
 
@@ -176,7 +176,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script type="text/javascript">
     let sessionUser = localStorage.getItem("sessionUser");
-    console.log(`sessionUser value: ${sessionUser}`);
     const page = "app";
     if (!sessionUser){
         window.location.href = "index.html";
