@@ -87,14 +87,14 @@ if (page == "index"){
             currentTaskBoard.innerHTML += `
             <div id="currenttask-${currentTask.id}" class="task-box w-11/12 md:w-5/12 xl:w-3/12 h-16 md:h-24 flex md:mx-5 md:text-xl my-2 md:my-3 text-lg rounded-3xl hover:translate-y-[-10px] transition ease-in-out bg-[#FFFFFF]/70 border-[#D1D1D1] border-4">
                     <div class="flex justify-center items-center" style="flex: 15%">
-                        <div class="checkbox-container mx-3 hover:bg-[#FFECA6]/80 hover:border-[#CEBC78]  hover:scale-[1.2] transition ease-in-out rounded-full">
+                        <div class="checkbox-container w-10 h-10 mx-3 hover:bg-[#FFECA6]/80 hover:border-[#CEBC78]  hover:scale-[1.2] transition ease-in-out rounded-full">
                         </div>
                     </div>
                     <div class="flex items-center" style="flex: 70%">
-                        <span class="truncate w-52 sm:w-32 xl:w-52 2xl:w-60 md:px-3">${currentTask.content}</span>
+                        <span class="truncate w-52 sm:w-32 xl:w-48 2xl:w-60 md:px-3">${currentTask.content}</span>
                     </div>
                     <div class="flex justify-center items-center" style="flex: 15%">
-                        <button onclick="deleteCurrentTask(${currentTask.id})" class="mx-3"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
+                        <button onclick="deleteCurrentTask(${currentTask.id})" class="mx-3 w-10 h-10"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
                     </div>
             </div>
             `;
@@ -168,14 +168,14 @@ if (page == "index"){
             currentTaskBoard.innerHTML += `
             <div id="currenttask-${newTask.id}" class="task-box w-11/12 md:w-5/12 xl:w-3/12 h-16 md:h-24 flex md:mx-5 md:text-xl my-2 md:my-3 text-lg rounded-3xl hover:translate-y-[-10px] transition ease-in-out bg-[#FFFFFF]/70 border-[#D1D1D1] border-4">
                     <div class="flex justify-center items-center" style="flex: 15%">
-                        <div class="checkbox-container mx-3 hover:bg-[#FFECA6]/80 hover:border-[#CEBC78]  hover:scale-[1.2] transition ease-in-out rounded-full">
+                        <div class="checkbox-container w-10 h-10 mx-3 hover:bg-[#FFECA6]/80 hover:border-[#CEBC78]  hover:scale-[1.2] transition ease-in-out rounded-full">
                         </div>
                     </div>
                     <div class="flex items-center" style="flex: 70%">
-                        <span class="truncate w-52 sm:w-32 xl:w-52 2xl:w-60 md:px-3">${newTask.content}</span>
+                        <span class="truncate w-52 sm:w-32 xl:w-48 2xl:w-60 md:px-3">${newTask.content}</span>
                     </div>
                     <div class="flex justify-center items-center" style="flex: 15%">
-                        <button onclick="deleteCurrentTask(${newTask.id})" class="mx-3"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
+                        <button onclick="deleteCurrentTask(${newTask.id})" class="mx-3 w-10 h-10"><i class="fa-solid fa-trash text-3xl hover:scale-[1.2] transition ease-in-out"></i></button>
                     </div>
             </div>
             `;
